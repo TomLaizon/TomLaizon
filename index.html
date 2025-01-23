@@ -95,24 +95,53 @@ content="width=device-width, initial-scale=1.0"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This</title>
+    <title>Анимация текста</title>
     <style>
-        /* Контейнер для текста */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            overflow: hidden;
+        }
+
         .text-left {
-            position: absolute; /* Позволяет задавать точное местоположение */
-            left: 0; /* Текст появляется слева */
-            top: 50%; /* Центрирует текст по вертикали */
-            transform: translateY(-50%); /* Смещает текст на середину */
-            padding: 10px; /* Отступы внутри блока */
-            background-color: #f0f0f0; /* Фон для визуального выделения */
-            border: 1px solid #ccc; /* Рамка для стиля */
+            position: absolute;
+            left: -300px; /* Начальная позиция (за пределами экрана) */
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slide-in 2s ease-out forwards; /* Анимация */
+        }
+
+        @keyframes slide-in {
+            0% {
+                left: -300px; /* Начинаем за экраном */
+                opacity: 0; /* Текст прозрачный */
+            }
+            50% {
+                opacity: 1; /* Становится видимым */
+            }
+            100% {
+                left: 20px; /* Конечная позиция (слева) */
+            }
         }
     </style>
 </head>
 <body>
     <div class="text-left">
-        РTest
+        Привет! Я появился с анимацией!
     </div>
 </body>
 </html>
+
 
